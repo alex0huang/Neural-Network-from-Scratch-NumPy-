@@ -47,6 +47,7 @@ for epoch in range(1000):
     db1 = np.mean(dz1, axis=0, keepdims=True) # dz/db= 1, dl/db= dl/dz * dz/db = dl/dz2 find the mean of all samples
 
     # update weights and biases
+    # dl/dz = y hat-y , predict more-> negative,less->positive. dw2=1/N A.T * dz2 db2=1/N *dz2, for db1 dw1, same apply, dz1=dz2*w2.T * relu_derivative(z1)
     W1 -= lr * dW1
     b1 -= lr * db1
     W2 -= lr * dW2
